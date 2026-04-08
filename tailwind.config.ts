@@ -60,7 +60,7 @@ export default {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
         },
-        sidebar: {
+        surface: "hsl(var(--surface))",
           DEFAULT: "hsl(var(--sidebar-background, 0 0% 98%))",
           foreground: "hsl(var(--sidebar-foreground, 240 5.3% 26.1%))",
           primary: "hsl(var(--sidebar-primary, 240 5.9% 10%))",
