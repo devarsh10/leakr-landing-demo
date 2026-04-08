@@ -3,18 +3,18 @@ import AppMockup from "./AppMockup";
 
 const Hero = () => {
   return (
-    <section className="w-full px-6 md:px-12 py-16 md:py-24 max-w-6xl mx-auto">
+    <section className="w-full px-6 md:px-12 py-12 md:py-20 max-w-6xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div className="space-y-8">
           <span className="inline-block text-xs tracking-wide text-muted-foreground border border-border rounded-full px-4 py-1.5">
             Now in early access
           </span>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-[72px] font-semibold leading-[1.1] text-foreground tracking-tight">
             Stop leaking<br />time.
           </h1>
 
-          <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-md">
+          <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-md">
             Leakr automatically tracks where your time goes — and holds you accountable for every hour.
           </p>
 
