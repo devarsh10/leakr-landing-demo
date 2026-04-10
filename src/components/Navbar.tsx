@@ -1,40 +1,69 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-const navLinks = [
+const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How it works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
 ];
 
-const Navbar = () => {
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="w-full py-5 px-6 md:px-12 flex items-center justify-between max-w-6xl mx-auto">
-      <Link to="/" className="flex items-center gap-2.5">
-        <div className="w-7 h-7 rounded-full bg-foreground" />
-        <span className="text-foreground text-base font-normal tracking-tight">leakr</span>
-      </Link>
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled ? "rgba(232,228,220,0.92)" : "transparent",
+        backdropFilter: scrolled ? "blur(14px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
+        borderBottom: scrolled
+          ? "1px solid rgba(26,26,26,0.08)"
+          : "1px solid transparent",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 h-18 flex items-center justify-between" style={{ height: "72px" }}>
 
-      <div className="hidden md:flex items-center gap-8">
-        {navLinks.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {link.label}
-          </a>
-        ))}
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src="/leakr.jpeg"
+            alt="Leakr"
+            height={44}
+            width={44}
+            className="object-contain rounded-md"
+          />
+          <span className="text-foreground text-lg font-semibold tracking-tight">
+            leakr
+          </span>
+        </Link>
+
+        {/* Nav links */}
+        <nav className="hidden md:flex items-center gap-8">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-base text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* CTA */}
+        <a
+          href="#early-access"
+          className="bg-foreground text-background text-sm px-4 py-2 md:text-base md:px-6 md:py-3 rounded-full font-medium hover:opacity-85 transition-opacity whitespace-nowrap"
+        >
+          <span className="md:hidden">Join waitlist</span>
+          <span className="hidden md:inline">Get early access</span>
+        </a>
       </div>
-
-      <a
-        href="#early-access"
-        className="bg-primary text-primary-foreground text-sm px-5 py-2.5 rounded-full font-medium hover:opacity-90 transition-opacity"
-      >
-        Get early access
-      </a>
-    </nav>
+    </header>
   );
-};
-
-export default Navbar;
+}
