@@ -19,6 +19,7 @@ export function Router({ children }: { children: ReactNode }) {
   const navigate = (to: string) => {
     window.history.pushState({}, "", to);
     setPath(to);
+    window.scrollTo(0, 0);
   };
 
   return <Ctx.Provider value={{ path, navigate }}>{children}</Ctx.Provider>;
@@ -39,8 +40,15 @@ export function Link({
       href={to}
       className={className}
       onClick={(e) => {
+        if (!to.startsWith("/")) return;
         e.preventDefault();
-        navigate(to);
+        const [path, hash] = to.split("#");
+        navigate(path || "/");
+        if (hash) {
+          setTimeout(() => {
+            document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+          }, 50);
+        }
       }}
     >
       {children}

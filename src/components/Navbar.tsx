@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "../router";
 const NAV_LINKS = [
-  { label: "Features", href: "#features" },
-  { label: "How it works", href: "#how-it-works" },
+  { label: "Features", href: "/#features" },
+  { label: "How it works", href: "/#how-it-works" },
 ];
 
 export default function Navbar() {
@@ -45,24 +45,24 @@ export default function Navbar() {
         {/* Nav links */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.href}
               className="text-base text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* CTA */}
-        <a
-          href="#early-access"
+        <Link
+          to="/#early-access"
           className="bg-foreground text-background text-sm px-4 py-2 md:text-base md:px-6 md:py-3 rounded-full font-medium hover:opacity-85 transition-opacity whitespace-nowrap"
         >
           <span className="md:hidden">Join waitlist</span>
           <span className="hidden md:inline">Get early access</span>
-        </a>
+        </Link>
       </div>
     </header>
   );

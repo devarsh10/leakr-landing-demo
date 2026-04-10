@@ -72,12 +72,12 @@ export default function Hero() {
               >
                 Try the demo
               </Link>
-              <a
-                href="#how-it-works"
+              <Link
+                to="/#how-it-works"
                 className="text-sm text-foreground px-7 py-3.5 rounded-full font-medium border border-foreground/20 hover:border-foreground/50 transition-colors"
               >
                 See how it works
-              </a>
+              </Link>
             </motion.div>
 
           </div>

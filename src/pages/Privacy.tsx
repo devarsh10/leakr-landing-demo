@@ -95,8 +95,8 @@ export default function Privacy() {
         <div className="mt-16 pt-8 border-t border-border">
           <p className="text-sm font-light text-muted-foreground">
             Questions about your data?{" "}
-            <a href="mailto:hello@leakr.app" className="text-foreground underline underline-offset-2 hover:text-muted-foreground transition-colors">
-              hello@leakr.app
+            <a href="mailto:getleakr@gmail.com" className="text-foreground underline underline-offset-2 hover:text-muted-foreground transition-colors">
+              getleakr@gmail.com
             </a>
           </p>
         </div>

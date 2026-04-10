@@ -2,10 +2,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const TOPICS = [
-  { label: "General question", email: "hello@leakr.app" },
-  { label: "Privacy or data request", email: "hello@leakr.app" },
-  { label: "Bug report", email: "hello@leakr.app" },
-  { label: "Early access / waitlist", email: "hello@leakr.app" },
+  { label: "General question", email: "getleakr@gmail.com" },
+  { label: "Privacy or data request", email: "getleakr@gmail.com" },
+  { label: "Bug report", email: "getleakr@gmail.com" },
+  { label: "Early access / waitlist", email: "getleakr@gmail.com" },
 ];
 
 export default function Contact() {
@@ -35,10 +35,10 @@ export default function Contact() {
         >
           <p className="text-xs font-mono tracking-widest text-muted-foreground mb-3">EMAIL US AT</p>
           <a
-            href="mailto:hello@leakr.app"
+            href="mailto:getleakr@gmail.com"
             className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight hover:text-muted-foreground transition-colors"
           >
-            hello@leakr.app
+            getleakr@gmail.com
           </a>
         </div>
 

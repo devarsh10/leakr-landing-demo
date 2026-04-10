@@ -1,9 +1,9 @@
 import { Link } from "../router";
 
 const PRODUCT_LINKS = [
-  { label: "Features",     href: "#features" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Why Leakr",    href: "#why-leakr" },
+  { label: "Features",     href: "/#features" },
+  { label: "How it works", href: "/#how-it-works" },
+  { label: "Why Leakr",    href: "/#why-leakr" },
   { label: "Try Demo",     href: "/demo" },
 ];
 
