@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext, ReactNode } from "react";
+import { useState, useEffect, createContext, useContext, Children, isValidElement, ReactNode } from "react";
 
 interface RouterCtx {
   path: string;
@@ -49,19 +49,22 @@ export function Link({
 }
 
 export function Routes({ children }: { children: ReactNode }) {
-  return <>{children}</>;
+  const { path: current } = useContext(Ctx);
+  let matched: ReactNode = null;
+  let fallback: ReactNode = null;
+
+  Children.forEach(children, (child) => {
+    if (!isValidElement(child)) return;
+    const { path, element } = child.props as { path: string; element: ReactNode };
+    if (path === "*") fallback = element;
+    else if (current === path && !matched) matched = element;
+  });
+
+  return <>{matched ?? fallback}</>;
 }
 
-export function Route({
-  path,
-  element,
-}: {
-  path: string;
-  element: ReactNode;
-}) {
-  const { path: current } = useContext(Ctx);
-  const match = path === "*" ? true : current === path;
-  return match ? <>{element}</> : null;
+export function Route(_: { path: string; element: ReactNode }) {
+  return null;
 }
 
 export function useLocation() {

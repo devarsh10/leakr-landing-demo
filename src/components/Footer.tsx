@@ -1,3 +1,5 @@
+import { Link } from "../router";
+
 const PRODUCT_LINKS = [
   { label: "Features",     href: "#features" },
   { label: "How it works", href: "#how-it-works" },
@@ -6,9 +8,9 @@ const PRODUCT_LINKS = [
 ];
 
 const LEGAL_LINKS = [
-  { label: "Privacy",  href: "#" },
-  { label: "Terms",    href: "#" },
-  { label: "Contact",  href: "mailto:hello@leakr.app" },
+  { label: "Privacy",  href: "/privacy" },
+  { label: "Terms",    href: "/terms" },
+  { label: "Contact",  href: "/contact" },
 ];
 
 export default function Footer() {
@@ -46,12 +48,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {PRODUCT_LINKS.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-foreground hover:text-muted-foreground transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -63,12 +65,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {LEGAL_LINKS.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-foreground hover:text-muted-foreground transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
