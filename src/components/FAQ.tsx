@@ -4,6 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FAQS = [
   {
+    q: "Is Leakr free?",
+    a: "Yes. Leakr has a free plan, always — manual timer, session logging, and progress tracking at no cost. A Pro plan with auto-pause detection and advanced insights is coming. Pricing will be announced at launch.",
+  },
+  {
     q: "Where is my data stored?",
     a: "Your session data is stored securely in our database. It never leaves your account and is never shared with third parties, employers, or anyone else. You own your data — full stop.",
   },

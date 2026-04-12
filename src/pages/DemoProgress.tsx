@@ -10,10 +10,17 @@ import {
   Entry,
 } from "../demo/storage";
 
+function localDateString(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 function addDays(dateStr: string, n: number): string {
   const d = new Date(dateStr + "T00:00:00");
   d.setDate(d.getDate() + n);
-  return toDateString(d);
+  return localDateString(d);
 }
 
 function formatDateLabel(dateStr: string): string {
@@ -30,7 +37,7 @@ function totalSeconds(entries: Entry[]): number {
 }
 
 export default function DemoProgress() {
-  const today = toDateString(new Date());
+  const today = localDateString(new Date());
   const [date, setDate] = useState(today);
   const [entries, setEntries] = useState<Entry[]>([]);
   const [showModal, setShowModal] = useState(false);

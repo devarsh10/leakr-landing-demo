@@ -5,9 +5,16 @@ import { Link } from "../router";
 
 type Period = "week" | "month" | "year";
 
+function localDateString(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 function getPeriodRange(period: Period): { start: string; end: string; label: string } {
   const now = new Date();
-  const today = toDateString(now);
+  const today = localDateString(now);
 
   if (period === "week") {
     const dow = now.getDay(); // 0=Sun
@@ -177,7 +184,7 @@ export default function DemoDashboard() {
               <div className="flex items-end gap-1.5" style={{ height: 96 }}>
                 {byDate.map(({ date, total }) => {
                   const heightPct = total > 0 ? Math.max(0.08, total / maxPerDay) : 0;
-                  const isToday = date === toDateString(new Date());
+                  const isToday = date === localDateString(new Date());
                   return (
                     <div
                       key={date}
