@@ -69,7 +69,7 @@ export default function DemoProgress() {
       <div className="max-w-3xl mx-auto px-6 md:px-10 py-12">
 
         {/* Header row */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between gap-6 mb-8">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setDate(addDays(date, -1))}
